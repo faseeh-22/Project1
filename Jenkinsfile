@@ -35,7 +35,7 @@ pipeline {
     steps {
         // Copy the updated file to a specific location in your local repository
         sh "sudo cp /var/lib/jenkins/workspace/OS/${params.FILENAME} /home/faseeh/OS-Project"
-        sh "sudo mv /home/faseeh/OS-Project/${params.FILENAME} /home/faseeh/Downloads/${params.RENAME}"
+        sh "sudo mv /home/faseeh/OS-Project/${params.FILENAME} /home/faseeh/OS-project-rename/${params.RENAME}"
     }
 }
     }
