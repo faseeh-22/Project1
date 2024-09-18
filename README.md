@@ -133,9 +133,10 @@ PRODUCT, ENDPOINT, REQ_URI, INDEX ) as follows:
 
 **6)** Now create a jenkins pipeline SCM named e.g "OS" and give your github credentials, filename, branch, repo URL.
 
-**7)** Save the pipeline and run it. You will see that a new file with changes is created and moved to your desired directory.
+**7)** Save the pipeline and run it. You will see that a new file with changes is created and moved to your desired directory.You can see changes 
+in the file by opening it using VS Code.
 
-NOTE: Also open the terminal and login as jenkins user as: " sudo su - jenkins "
+**NOTE:** Also open the terminal and login as jenkins user as: " sudo su - jenkins "
 then cd into workspace: " cd workspace " and then see your new directory in the jenkins workspace.
 
-NOTE: These all 4 files should be on github (must) and these files are not needed on Laptop or local machine.
+**NOTE:** These all 4 files should be on github (must) and these files are not needed on Laptop or local machine.
