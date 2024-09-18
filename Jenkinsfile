@@ -17,25 +17,25 @@ pipeline {
                     // Checkout code from your Git repository
                     checkout([$class: 'GitSCM', branches: [[name: '*/main']],
                               doGenerateSubmoduleConfigurations: false,
-                              extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/faseeh-22/Jenkins_Assignments.git']]])
+                              extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/faseeh-22/Project1.git']]])
                 }
             }
         }
         stage('Execute Script') {
             steps {
                 // Set execute permission on the script file (if needed)
-                sh 'chmod +rwx Jenkins-Job_Update-Dashboard/final1.sh'
+                sh 'chmod +rwx Project1/final1.sh'
                 // Execute your Bash script with parameters
                 script {
-                    sh "./Jenkins-Job_Update-Dashboard/final1.sh ${params.FILENAME} ${params.PRODUCT} ${params.ENDPOINT} ${params.REQ_URI} ${params.INDEX} ${params.RENAME}"
+                    sh "./Project1/final1.sh ${params.FILENAME} ${params.PRODUCT} ${params.ENDPOINT} ${params.REQ_URI} ${params.INDEX} ${params.RENAME}"
                 }
             }
         }
         stage('Copy File to Local Repository') {
     steps {
         // Copy the updated file to a specific location in your local repository
-        sh "sudo cp /var/lib/jenkins/workspace/OP1/Jenkins-Job_Update-Dashboard/${params.FILENAME} /home/faseeh/Downloads"
-        sh "sudo mv /home/faseeh/Downloads/${params.FILENAME} /home/faseeh/Downloads/${params.RENAME}"
+        sh "sudo cp /var/lib/jenkins/workspace/Project1/${params.FILENAME} /home/faseeh/OS-Project"
+        sh "sudo mv /home/faseeh/OS-Project/${params.FILENAME} /home/faseeh/Downloads/${params.RENAME}"
     }
 }
     }
