@@ -10,7 +10,7 @@ Please also suggest at least one field that we can add in this automation and th
 
 ## Steps
 
-1) Create a Jenkinsfile like this:
+**1)** Create a Jenkinsfile like this:
 
 
 pipeline {
@@ -56,7 +56,7 @@ pipeline {
     }
 }
 
-2) Create a script file named e.g final1.sh as follows:
+**2)** Create a script file named e.g final1.sh as follows:
 
 #!/bin/bash
 
@@ -84,7 +84,7 @@ sed -i "s/INDEX/$index/g" "$filename"
 
 echo "Replacements complete in $filename."
 
-3) Create a file named e.g "domain_file" and add 15 random domains as follows and leave very first line as blank:
+**3)** Create a file named e.g "domain_file" and add 15 random domains as follows and leave very first line as blank:
 
 
 api.tap.company
@@ -103,9 +103,8 @@ qa-api.tap.company
 beta-api.tap.company
 internal-api.tap.company
 
-4) Create a file named e.g "dashboard.ndjson" or "template.ndjson" and add content in it and also write generic keywords e.g (
+**4)** Create a file named e.g "dashboard.ndjson" or "template.ndjson" and add content in it and also write generic keywords e.g (
 PRODUCT, ENDPOINT, REQ_URI, INDEX ) as follows:
-
 
 
 {"attributes":{"description":"","kibanaSavedObjectMeta":{"searchSourceJSON":"{\"query\":{\"query\":\"\",\"language\":\"kuery\"},\"filter\":[]}"},"title":"PRODUCT - ENDPOINT - Status Code","uiStateJSON":"{}","version":1,"visState":"{\"title\":\"PRODUCT - ENDPOINT - Status Code\",\"type\":\"metrics\",\"aggs\":[],\"params\":{\"axis_formatter\":\"number\",\"axis_position\":\"left\",\"axis_scale\":\"normal\",\"background_color_rules\":[{\"id\":\"3e8bf970-9fd3-11ed-bde9-69dfd97075ed\"}],\"filter\":{\"query\":\"\",\"language\":\"kuery\"},\"id\":\"61ca57f0-469d-11e7-af02-69e470af7417\",\"index_pattern\":\"INDEX\",\"interval\":\"\",\"isModelInvalid\":false,\"series\":[{\"axis_position\":\"right\",\"chart_type\":\"line\",\"color\":\"#68BC00\",\"fill\":0.5,\"filter\":{\"language\":\"kuery\",\"query\":\"\"},\"formatter\":\"number\",\"id\":\"61ca57f1-469d-11e7-af02-69e470af7417\",\"line_width\":1,\"metrics\":[{\"id\":\"61ca57f2-469d-11e7-af02-69e470af7417\",\"type\":\"count\"}],\"point_size\":1,\"separate_axis\":0,\"split_color_mode\":\"opensearchDashboards\",\"split_filters\":[{\"color\":\"#68BC00\",\"filter\":{\"language\":\"kuery\",\"query\":\"\"},\"id\":\"49e1e410-9fd3-11ed-bde9-69dfd97075ed\"}],\"split_mode\":\"terms\",\"stacked\":\"none\",\"terms_field\":\"elb_status_code\",\"terms_size\":\"15\"}],\"show_grid\":1,\"show_legend\":1,\"time_field\":\"request_creation_time\",\"tooltip_mode\":\"show_all\",\"type\":\"timeseries\",\"default_index_pattern\":\"INDEX\",\"default_timefield\":\"request_creation_time\"}}"},"id":"691913b6-c498-4861-b45b-f3faae5f4453","migrationVersion":{"visualization":"7.10.0"},"references":[],"type":"visualization","updated_at":"2024-02-12T09:55:45.919Z","version":"WzE0OTY0LDFd"}
@@ -130,10 +129,10 @@ PRODUCT, ENDPOINT, REQ_URI, INDEX ) as follows:
 {"exportedCount":21,"missingRefCount":0,"missingReferences":[]}
 
 
-5) Now create Repository on github e.g "Project1" and push all these files (Jenkinsfile, dashboard.ndjson, domain_file, final1.sh) on github.
+**5)** Now create Repository on github e.g "Project1" and push all these files (Jenkinsfile, dashboard.ndjson, domain_file, final1.sh) on github.
 
-6) Now create a jenkins pipeline SCM named e.g "OS" and give your github credentials, filename, branch, repo URL.
+**6)** Now create a jenkins pipeline SCM named e.g "OS" and give your github credentials, filename, branch, repo URL.
 
-7) Save the pipeline and run it. You will see that a new file with changes is created and moved to your desired directory.
+**7)** Save the pipeline and run it. You will see that a new file with changes is created and moved to your desired directory.
 
-NOTE: These all 4 files should be on github (must) and not needed on Laptop or local machine.
+NOTE: These all 4 files should be on github (must) and these files are not needed on Laptop or local machine.
