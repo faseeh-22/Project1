@@ -24,17 +24,17 @@ pipeline {
         stage('Execute Script') {
             steps {
                 // Set execute permission on the script file (if needed)
-                sh 'chmod +rwx Project1/final1.sh'
+                sh 'chmod +rwx final1.sh'
                 // Execute your Bash script with parameters
                 script {
-                    sh "./Project1/final1.sh ${params.FILENAME} ${params.PRODUCT} ${params.ENDPOINT} ${params.REQ_URI} ${params.INDEX} ${params.RENAME}"
+                    sh "./final1.sh ${params.FILENAME} ${params.PRODUCT} ${params.ENDPOINT} ${params.REQ_URI} ${params.INDEX} ${params.RENAME}"
                 }
             }
         }
         stage('Copy File to Local Repository') {
     steps {
         // Copy the updated file to a specific location in your local repository
-        sh "sudo cp /var/lib/jenkins/workspace/Project1/${params.FILENAME} /home/faseeh/OS-Project"
+        sh "sudo cp /var/lib/jenkins/workspace/OS/${params.FILENAME} /home/faseeh/OS-Project"
         sh "sudo mv /home/faseeh/OS-Project/${params.FILENAME} /home/faseeh/Downloads/${params.RENAME}"
     }
 }
